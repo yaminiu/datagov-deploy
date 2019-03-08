@@ -11,6 +11,9 @@
     - python-pip
     - python-virtualenv
 
+- name: install global pipenv for managing ansible dependencies
+  pip: name=pipenv state=present
+
 - name: Create/remove the user account
   user:
     name: "{{ item.username }}"
