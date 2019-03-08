@@ -4,15 +4,10 @@
   with_items:
     # These are mostly dependencies for datagov-deploy's requirements.txt
     - git
-    - libffi-dev
-    - libssl-dev
     - openssh-server
-    - python-dev
-    - python-pip
-    - python-virtualenv
 
 - name: install global pipenv for managing ansible dependencies
-  pip: name=pipenv state=present
+  pip: name=pipenv executable=/usr/local/pyenv/versions/3.6.8/bin/pip virtualenv_python=/usr/local/pyenv/versions/3.6.8/bin/python state=present
 
 - name: Create/remove the user account
   user:

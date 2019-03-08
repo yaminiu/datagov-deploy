@@ -2,4 +2,12 @@
 - name: Provision Jumpbox
   hosts: jumpbox
   roles:
+    - role: avanov.pyenv
+      vars:
+        pyenv_env: system
+        pyenv_owner: root
+        pyenv_python_versions:
+          - '3.6.8'
+        pyenv_global: '3.6.8'
+        pyenv_virtualenvs: []
     - {role: software/jumpbox, tags: [jumpbox]}

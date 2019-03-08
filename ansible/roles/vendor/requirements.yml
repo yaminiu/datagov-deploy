@@ -4,6 +4,8 @@
 # using this file. Follow the instructions at http://docs.ansible.com/ansible/galaxy.html
 # to include any roles you want installed prior to running main.yml.
 
+- src: avanov.pyenv
+  version: 'b71c95c9fe2d9faa46cac4b76e9eb2d646a3947a'
 - src: chusiang.vim-and-vi-mode
 - src: geerlingguy.composer
 - src: geerlingguy.git
