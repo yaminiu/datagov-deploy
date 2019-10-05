@@ -43,6 +43,34 @@ bionic      | `develop` (manual) | jump.bionic.datagov.us
 ci          | `develop` (manual) | jump.ci.datagov.us
 
 
+## Philosophy
+
+An **Application** is an individual component of functionality for Data.gov and
+should follow the [Twelve-factor methodology](https://12factor.net).
+catalog.data.gov is an example of an Application.
+
+A **Service** is consumed by an Application through a defined interface. Solr
+is an example of a Service.
+
+The **Platform** refers to the conceptual environment in which we deploy the
+various Applications that make up Data.gov. The Platform exposes Services to the
+Applications.
+
+Neither one of the groups should really care much about the other and we try to
+write our Ansible roles with this in mind. In practice, Ansible Roles implement
+individual Services and Applications. Ansible Playbooks bind these services to
+individual Applications.
+
+- Applications should be implemented as a source repository or artifact
+- A role implements a single Application or Service
+- A Playbook will include an Application role, and several Service roles
+
+You can read more about this
+philosophy and its proposed implementation in the [Draft: 12-factor Data.gov
+Platform Architecture](https://docs.google.com/document/d/11Hr2SBFSDRmqtdQd-jC-wZlZ10pWM-b789GSep9pSQk/edit#).
+
+
+
 ## Usage
 
 All deployments are done from the Jumpbox. They are already configured with
