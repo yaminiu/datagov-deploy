@@ -1,14 +1,14 @@
-[program:dashboard-cfo-act-download]
-command=timeout --preserve-status 23h /usr/bin/php {{ current_source_symlink }}/public/index.php campaign status cfo-act download
-stdout_logfile=/var/log/dashboard/cfo-act-download.log
+[program:dashboard-campaign-status-download]
+command=timeout --preserve-status 23h /usr/bin/php {{ current_source_symlink }}/public/index.php campaign status all download
+stdout_logfile=/var/log/dashboard/campaign-status-download.log
 redirect_stderr=true
 autorestart=false
 autostart=false
 user=ubuntu
 
-[program:dashboard-cfo-act-full-scan]
-command=timeout --preserve-status 23h /usr/bin/php {{ current_source_symlink }}/public/index.php campaign status cfo-act full-scan
-stdout_logfile=/var/log/dashboard/cfo-act-full-scan.log
+[program:dashboard-campaign-status-full-scan]
+command=timeout --preserve-status 23h /usr/bin/php {{ current_source_symlink }}/public/index.php campaign status all full-scan
+stdout_logfile=/var/log/dashboard/campaign-status-full-scan.log
 redirect_stderr=true
 autorestart=false
 autostart=false
