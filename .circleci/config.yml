@@ -5,7 +5,7 @@ jobs:
       - image: circleci/python:3.6
     environment:
       PIPENV_VENV_IN_PROJECT: 1
-      DEFAULT_VAULT_PASSWORD_FILE: $HOME/ansible-secret.txt
+      DEFAULT_VAULT_PASSWORD_FILE: ansible-secret.txt
     steps:
       - checkout
       - restore_cache:
