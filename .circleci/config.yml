@@ -108,10 +108,10 @@ workflows:
                 - master
 
       - deploy-ci:
-          requires:
-            - lint
-            - test
-            - snyk-test
+        #  requires:
+        #    - lint
+        #    - test
+        #    - snyk-test
           filters:
             branches:
               only: feature/jenkinsfile3
