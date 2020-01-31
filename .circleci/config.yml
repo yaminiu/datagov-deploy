@@ -89,6 +89,7 @@ jobs:
     environment:
       JENKINS_URL: https://ci.ci.datagov.us
     steps:
+      - checkout
       - deploy:
           name: Trigger Jenkins deploy
           command: bin/jenkins_build datagov-deploy2
