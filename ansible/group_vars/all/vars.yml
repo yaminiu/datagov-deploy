@@ -35,6 +35,9 @@ dashboard_php_major_minor_version: "{{ php_major_minor_version }}"
 datagov_support_email: datagov@gsa.gov
 datagov_team_email: datagovhelp@gsa.gov
 
+
+inventory_ckan_python_home: "{{ common_python_version_directory }}"
+
 # newrelic monitoring
 nrinfragent_config:
   license_key: "{{ vault_nrinfragent_license_key }}"
