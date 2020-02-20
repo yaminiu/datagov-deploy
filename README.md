@@ -475,20 +475,38 @@ You can configure git to automatically decrypt Vault files for reviewing diffs.
 _Note: this is a work in progress._
 
 Currently, deployment to BSP environments is done manually by running Ansible
-playbooks from the jumpbox hosts. We are moving to automated continuous deployment via Jenkins CI server.
+playbooks from the jumpbox hosts. We are moving to automated continuous
+deployment via Jenkins CI server.
 
-We still use CircleCI for majority of CI needs. Any tasks requiring access to
+Jenkins is only implemented as a push-button deploy for [ci.datagov.us
+environment](https://ci.ci.datagov.us).
+
+We still use CircleCI for CI. Any tasks requiring access to
 the GSA network (like deployment) are handed over to Jenkins (via the Jenkins
 API).
 
 
-### Setup
+### Status
+
+This describes the status of our Jenkins instances as we implement them.
+
+Environment | Host | Status
+----------- | ---- | ------
+`ci`        | [ci.ci.datagov.us](https://ci.ci.datagov.us/) | - [x] Push-button platform deploy job<br/>- [ ] Push-button deploy for applications<br/>- [ ] Triggered from CI
+`mgmt`        | _not implemented_ | - [ ] Push-button platform deploy job<br/>- [ ] Push-button deploy for applications<br/>- [ ] Triggered from CI
+
+
+### CircleCI Setup
+
+CircleCI needs access to Jenkins in order to trigger jobs. This describes the
+settings and credentials needed.
 
 Add the following environment variables to CI configuration. These are required
 for the `bin/jenkins_build` script. Secret variables should be entered in the
 [UI configuration only](https://circleci.com/gh/GSA/datagov-deploy/edit#env-vars).
 
 Variable | Description | Secret
+-------- | ----------- | ------
 `JENKINS_USER` | The Jenkins user with access to the API. | Y
 `JENKINS_API_TOKEN` | The API token for the Jenkins user. | Y
 `JENKINS_JOB_TOKEN` | The job token specified in the job configuration. | Y
