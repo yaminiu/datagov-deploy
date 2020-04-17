@@ -1,5 +1,6 @@
 ---
 # catalog
+catalog_admin_service_url: https://admin-catalog-datagov.dev-ocsit.bsp.gsa.gov
 catalog_ckan_app_version: master
 catalog_ckan_archiver_process_count: 3
 # read-only database variables

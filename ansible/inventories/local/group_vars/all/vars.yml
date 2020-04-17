@@ -1,4 +1,7 @@
 ---
+catalog_admin_service_url: "{{ catalog_ckan_service_url }}"
+catalog_ckan_service_url: http://localhost:8080
+
 default_tls_host_key: "{{ vault_default_tls_host_key }}"
 default_tls_host_certificate: |-
   -----BEGIN CERTIFICATE-----
