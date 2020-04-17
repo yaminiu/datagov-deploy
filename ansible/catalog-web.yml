@@ -96,3 +96,7 @@
         validate_certs: false
       run_once: true
       delegate_to: localhost
+      retries: 3
+      delay: 10
+      register: result
+      until: not result.failed
