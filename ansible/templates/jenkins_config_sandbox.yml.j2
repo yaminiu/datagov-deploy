@@ -30,6 +30,9 @@ jobs:
           cpsScm {
             scm {
               git {
+                extensions {
+                  localBranch()
+                }
                 remote {
                   url('{{ job.git_url }}')
                 }
