@@ -1,0 +1,38 @@
+---
+jenkins:
+  systemMessage: >
+    Data.gov sandbox deployment service.
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+unclassified:
+  timestamperConfig:
+    allPipelines: true
+
+# https://plugins.jenkins.io/job-dsl/
+jobs:
+{% for job in jenkins_jobs %}
+  - script: |
+      pipelineJob('{{ job.name }}') {
+        authenticationToken('{{ job.authentication_token | default(jenkins_job_authentication_token) }}')
+        properties {
+          buildDiscarder { strategy { logRotator { daysToKeepStr('90') } } }
+          disableConcurrentBuilds()
+          quietPeriod(120)
+        }
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote {
+                  url('{{ job.git_url }}')
+                }
+                branch('{{ job.git_ref | default('refs/heads/master') }}')
+              }
+            }
+            lightweight()
+          }
+        }
+      }
+{% endfor %}
