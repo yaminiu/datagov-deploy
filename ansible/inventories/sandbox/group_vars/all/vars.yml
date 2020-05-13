@@ -94,6 +94,9 @@ jenkins_jobs:
   - name: deploy-ci-app-inventory-next
     git_url: https://github.com/gsa/inventory-app.git
     git_ref: refs/heads/inventory_ckan_2.8
+  - name: deploy-ci-app-pycsw
+    git_url: https://github.com/gsa/pycsw.git
+    git_ref: refs/heads/datagov/v2.4.x
   - name: deploy-ci-app-wordpress
     git_url: https://github.com/gsa/datagov-wp-boilerplate.git
     # TODO delete this once PR is merged
