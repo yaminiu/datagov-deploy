@@ -1,6 +1,6 @@
 ---
 - name: Provisioning Inventory CKAN Stack
-  hosts: inventory-web:!inventory-web-2-8
+  hosts: inventory-web
   serial: 1
   vars:
     app_type: inventory
@@ -65,7 +65,7 @@
 
 
 - name: NewRelic
-  hosts: inventory-web:!inventory-web-2-8
+  hosts: inventory-web
   vars:
     newrelic_app_name: inventory
   roles:
@@ -75,7 +75,7 @@
 
 
 - name: Service-level smoke tests
-  hosts: inventory-web:!inventory-web-2-8
+  hosts: inventory-web
   tasks:
     - name: flush handlers
       meta: flush_handlers
