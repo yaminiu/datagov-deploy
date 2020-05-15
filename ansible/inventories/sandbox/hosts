@@ -43,6 +43,7 @@ tag_group_elasticsearch
 
 [inventory-web:children]
 tag_group_inventory_web
+tag_group_inventory_web_2_8
 
 [inventory-web-2-8:children]
 tag_group_inventory_web_2_8
