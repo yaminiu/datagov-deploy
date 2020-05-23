@@ -1,33 +1,42 @@
 # Define ec2 tag groups. There might not be any actual hosts in every group.
 # See github.com/GSA/datagov-infrastructure-modules and github.com/GSA/datagov-infrastructure-live
-[tag_group_catalog_harvester]
+[tag_group_catalog_harvester]  # TODO remove after https://github.com/GSA/datagov-infrastructure-live/pull/81 is applied
+[tag_group_catalog_harvester_v1]
 [tag_group_catalog_harvester_next]
-[tag_group_catalog_web]
+[tag_group_catalog_web]  # TODO remove after https://github.com/GSA/datagov-infrastructure-live/pull/81 is applied
+[tag_group_catalog_web_v1]
 [tag_group_catalog_web_next]
 [tag_group_dashboard_web]
 [tag_group_efk_nginx]
 [tag_group_elasticsearch]
 [tag_group_inventory_web]
-[tag_group_inventory_web_2_8]
+[tag_group_inventory_web_2_8]  # TODO remove after https://github.com/GSA/datagov-infrastructure-live/pull/81 is applied
+[tag_group_inventory_web_next]
 [tag_group_jenkins]
 [tag_group_jumpbox]
 [tag_group_kibana]
 [tag_group_solr]
-[tag_group_v1]
-[tag_group_v2]
+[tag_group_v1]  # TODO remove after https://github.com/GSA/datagov-infrastructure-live/pull/81 is applied
+[tag_group_v2]  # TODO remove after https://github.com/GSA/datagov-infrastructure-live/pull/81 is applied
 [tag_group_wordpress_web]
 
 
 [catalog-harvester:children]
-tag_group_catalog_harvester
-tag_group_catalog_harvester_next
+catalog-harvester-v1
+catalog-harvester-next
+
+[catalog-harvester-v1:children]
+tag_group_catalog_harvester_v1
 
 [catalog-harvester-next:children]
 tag_group_catalog_harvester_next
 
 [catalog-web:children]
-tag_group_catalog_web
-tag_group_catalog_web_next
+catalog-web-v1
+catalog-web-next
+
+[catalog-web-v1:children]
+tag_group_catalog_web_v1
 
 [catalog-web-next:children]
 tag_group_catalog_web_next
@@ -42,10 +51,13 @@ tag_group_efk_nginx
 tag_group_elasticsearch
 
 [inventory-web:children]
+inventory-web-v1
+
+[inventory-web-v1:children]
 tag_group_inventory_web
 
-[inventory-web-2-8:children]
-tag_group_inventory_web_2_8
+[inventory-web-next:children]
+tag_group_inventory_web_next
 
 [jenkins:children]
 tag_group_jenkins
@@ -57,18 +69,38 @@ tag_group_jumpbox
 tag_group_kibana
 
 [pycsw-web:children]
-tag_group_catalog_web
+tag_group_catalog_web_v1
 
 [pycsw-worker:children]
-tag_group_catalog_harvester
+tag_group_catalog_harvester_v1
+
+[redis:children]
+redis-catalog
+
+[redis-catalog:children]
+tag_group_catalog_harvester_v1
+
+# Redis is provided by ElastiCache
+[redis-catalog-next]
+[redis-inventory-next]
 
 [solr:children]
 tag_group_solr
 
 [v1:children]
+tag_group_catalog_harvester_v1
+tag_group_catalog_web_v1
+tag_group_inventory_web
 tag_group_v1
 
 [v2:children]
+tag_group_catalog_web_next
+tag_group_catalog_harvester_next
+tag_group_dashboard_web
+tag_group_inventory_web_next
+tag_group_jenkins
+tag_group_jumpbox
+tag_group_wordpress_web
 tag_group_v2
 
 [wordpress-web:children]
