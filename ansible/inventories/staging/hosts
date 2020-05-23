@@ -11,10 +11,12 @@ catalogharvester2d.dev-ocsit.bsp.gsa.gov
 
 [catalog-harvester-qa]
 
-
 [catalog-harvester-v1]
 catalog-harvester1d.dev-ocsit.bsp.gsa.gov
 catalog-harvester2d.dev-ocsit.bsp.gsa.gov
+
+[catalog-harvester-v2:children]
+catalog-harvester-next
 
 [catalog-harvester-next]
 catalogharvester1d.dev-ocsit.bsp.gsa.gov
@@ -29,6 +31,9 @@ catalog-web[1:2]d.dev-ocsit.bsp.gsa.gov
 [catalog-web-v1:children]
 catalog-admin-v1
 
+[catalog-web-v2:children]
+catalog-web-next
+
 [catalog-web-next]
 catalogweb[1:2]d.dev-ocsit.bsp.gsa.gov
 
@@ -40,6 +45,9 @@ catalog-admin-v1
 
 [catalog-admin-v1]
 catalogpub-web1d.dev-ocsit.bsp.gsa.gov
+
+[catalog-admin-v2:children]
+catalog-admin-next
 
 [catalog-admin-next]
 catalogpubweb1d.dev-ocsit.bsp.gsa.gov
@@ -62,6 +70,9 @@ inventory-web-v1
 [inventory-web-v1]
 inventory[1:2]d.dev-ocsit.bsp.gsa.gov
 
+[inventory-web-v2:children]
+inventory-web-next
+
 [inventory-web-next]
 inventory-[1:2]d.dev-ocsit.bsp.gsa.gov
 
@@ -83,15 +94,20 @@ pycsw-web-v1
 # We install pycsw on all catalog-web hosts
 catalog-web-v1
 
+[pycsw-web-v2:children]
+pycsw-web-next
+
 [pycsw-web-next:children]
 
 [pycsw-worker:children]
 pycsw-worker-v1
-pycsw-worker-v2
 
 [pycsw-worker-v1]
 # We configure only a single worker for pycsw, usually the misc worker.
 catalog-harvester2d.dev-ocsit.bsp.gsa.gov
+
+[pycsw-worker-v2:children]
+pycsw-worker-next
 
 [pycsw-worker-next]
 
@@ -111,11 +127,11 @@ wordpress-web-v1
 
 # bionic stack
 [v2:children]
-catalog-admin-next
-catalog-harvester-next
-catalog-web-next
+catalog-admin-v2
+catalog-harvester-v2
+catalog-web-v2
 dashboard-web-v2
-inventory-web-next
+inventory-web-v2
 jumpbox-v2
 solr
 wordpress-web-v2

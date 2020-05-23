@@ -28,6 +28,9 @@ catalog-harvester-next
 [catalog-harvester-v1:children]
 tag_group_catalog_harvester_v1
 
+[catalog-harvester-v2:children]
+catalog-harvester-next
+
 [catalog-harvester-next:children]
 tag_group_catalog_harvester_next
 
@@ -37,6 +40,9 @@ catalog-web-next
 
 [catalog-web-v1:children]
 tag_group_catalog_web_v1
+
+[catalog-web-v2:children]
+catalog-web-next
 
 [catalog-web-next:children]
 tag_group_catalog_web_next
@@ -55,6 +61,9 @@ inventory-web-v1
 
 [inventory-web-v1:children]
 tag_group_inventory_web
+
+[inventory-web-v2:children]
+inventory-web-next
 
 [inventory-web-next:children]
 tag_group_inventory_web_next
