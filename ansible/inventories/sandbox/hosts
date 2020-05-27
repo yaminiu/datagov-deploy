@@ -84,12 +84,6 @@ tag_group_catalog_harvester_v1
 [redis-catalog-next]
 [redis-inventory-next]
 
-[redis:children]
-redis-catalog
-
-[redis-catalog:children]
-tag_group_catalog_harvester
-
 # Redis is provided by ElastiCache
 [redis-catalog-next]
 [redis-inventory-next]
