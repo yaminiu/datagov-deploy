@@ -20,14 +20,12 @@
 
 [catalog-harvester:children]
 tag_group_catalog_harvester
-tag_group_catalog_harvester_next
 
 [catalog-harvester-next:children]
 tag_group_catalog_harvester_next
 
 [catalog-web:children]
 tag_group_catalog_web
-tag_group_catalog_web_next
 
 [catalog-web-next:children]
 tag_group_catalog_web_next
@@ -76,10 +74,21 @@ tag_group_catalog_harvester
 tag_group_solr
 
 [v1:children]
+tag_group_catalog_harvester
+tag_group_catalog_web
+tag_group_inventory_web
 tag_group_v1
 
 [v2:children]
+tag_group_catalog_harvester_next
+tag_group_catalog_web_next
+tag_group_dashboard_web
+tag_group_inventory_web_2_8
+tag_group_jenkins
+tag_group_jumpbox
+tag_group_solr
 tag_group_v2
+tag_group_wordpress_web
 
 [wordpress-web:children]
 tag_group_wordpress_web
