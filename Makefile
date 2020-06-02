@@ -36,8 +36,14 @@ vendor:
 setup:
 	pipenv install --dev
 
-lint:
-	cd ansible && ansible-playbook --syntax-check $(ANSIBLE_PLAYBOOKS)
+inventory:
+	cd ansible && ANSIBLE_INVENTORY_ANY_UNPARSED_IS_FAILED=1 ansible-inventory --graph --inventory inventories/production
+	cd ansible && ANSIBLE_INVENTORY_ANY_UNPARSED_IS_FAILED=1 ansible-inventory --graph --inventory inventories/staging
+
+lint: inventory
+	cd ansible && ANSIBLE_INVENTORY_ANY_UNPARSED_IS_FAILED=1 ansible-playbook --syntax-check --inventory inventories/production $(ANSIBLE_PLAYBOOKS)
+	cd ansible && ANSIBLE_INVENTORY_ANY_UNPARSED_IS_FAILED=1 ansible-playbook --syntax-check --inventory inventories/staging $(ANSIBLE_PLAYBOOKS)
+	cd ansible && ansible-playbook --syntax-check --inventory inventories/sandbox $(ANSIBLE_PLAYBOOKS)
 	cd ansible && ansible-lint -v -x ANSIBLE0010 --exclude=roles/vendor *.yml
 
 $(MOLECULE_SUITE_TARGETS):
@@ -47,4 +53,4 @@ $(MOLECULE_SUITE_TARGETS):
 test: $(MOLECULE_SUITE_TARGETS)
 test-molecule-only: $(MOLECULE_SUITE_TARGETS)
 
-.PHONY: lint setup test $(MOLECULE_SUITE_TARGETS)
+.PHONY: inventory lint setup test $(MOLECULE_SUITE_TARGETS)
