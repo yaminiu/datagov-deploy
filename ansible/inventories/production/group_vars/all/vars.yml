@@ -122,10 +122,8 @@ default_tls_host_certificate: |-
   jq6TzjDZiw==
   -----END CERTIFICATE-----
 
-
-
-jumpbox_operators: "{{ datagov_operators_production }}"
-
+# Load (encrypted) datagov_operators variable from file
+datagov_operators_vars: datagov_operators_production.yml
 
 inventory_ckan_service_url: https://inventory.data.gov
 inventory_ckan_solr_host: datagov-solrm1p.prod-ocsit.bsp.gsa.gov

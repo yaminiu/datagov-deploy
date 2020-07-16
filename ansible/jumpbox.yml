@@ -1,5 +1,9 @@
 ---
 - name: Provision Jumpbox
   hosts: jumpbox
+  pre_tasks:
+    - name: include datagov_operators for environment
+      include_vars: "{{ datagov_operators_vars }}"
+      ignore_errors: true
   roles:
     - {role: gsa.datagov-deploy-jumpbox, tags: [jumpbox]}

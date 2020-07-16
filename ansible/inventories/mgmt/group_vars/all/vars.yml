@@ -1,5 +1,6 @@
 ---
-jumpbox_operators: "{{ datagov_operators_production }}"
+# Load (encrypted) datagov_operators variable from file
+datagov_operators_vars: datagov_operators_production.yml
 
 # TrendMicro
 trendmicro_policy_id_jumpbox: "{{ vault_trendmicro_policy_id_jumpbox }}"
