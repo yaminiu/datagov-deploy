@@ -21,6 +21,7 @@
   copy:
     src: "{{ virtualenv }}/src/ckanext-datajson/ckanext/datajson/export_map/export.inventory.map.sample.json"
     dest: "{{ virtualenv }}/src/ckanext-datajson/ckanext/datajson/export_map/export.map.json"
+    mode: 0644
     remote_src: true
   notify: restart apache2
 

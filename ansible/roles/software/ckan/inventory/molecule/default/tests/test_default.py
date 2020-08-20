@@ -7,14 +7,6 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
-def test_hosts_file(host):
-    f = host.file('/etc/hosts')
-
-    assert f.exists
-    assert f.user == 'root'
-    assert f.group == 'root'
-
-
 def test_apache2_sites(host):
     ckan = host.file('/etc/apache2/sites-enabled/ckan.conf')
     datapusher = host.file('/etc/apache2/sites-enabled/datapusher.conf')
@@ -62,3 +54,13 @@ def test_beaker_cache_cleanup(host):
 def test_gunicorn_web_app(host):
     supervisor_output = host.check_output('supervisorctl status')
     assert re.search(r'gunicorn-web-app +RUNNING', supervisor_output)
+
+
+def test_datajson_export_map(host):
+    export_map = host.file/('/usr/lib/ckan/src/ckanext-datajson/ckanext/datajson/export_map/export.map.json')
+
+    assert export_map.exists
+    assert export_map.user == 'root'
+    assert export_map.group == 'www-data'
+    assert export_map.mode == 0o644
+    assert export_map.contains('"conformsTo": "https://project-open-data.cio.gov/v1.1/schema"')
