@@ -32,3 +32,4 @@ catalog_ckan_plugins_default:
   - datagovtheme
   - datagovcatalog
   - googleanalyticsbasic
+  - saml2
