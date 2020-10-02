@@ -50,6 +50,8 @@ provisioner:
           - geodatagov_waf_harvester
           - spatial_query
           - datagovtheme
+        catalog_host_public: "catalog-next.datagov.us"
+        catalog_host_admin: "catalog-next.datagov.us"
 
   lint:
     name: ansible-lint

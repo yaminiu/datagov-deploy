@@ -33,6 +33,8 @@ catalog_next_ckan_redis_url: "rediss://:{{ catalog_ckan_redis_password }}@{{ cat
 catalog_next_postgresql_login_host: "{{ vault_catalog_next_postgresql_login_host }}"
 catalog_next_postgresql_login_password: "{{ vault_catalog_next_postgresql_login_password }}"
 catalog_next_postgresql_login_user: "{{ vault_catalog_next_postgresql_login_user }}"
+catalog_next_host_public: catalog-next.{{ datagov_sandbox_env }}.datagov.us
+catalog_next_host_admin: catalog-next.{{ datagov_sandbox_env }}.datagov.us
 
 
 ckan_create_user_via_web: true

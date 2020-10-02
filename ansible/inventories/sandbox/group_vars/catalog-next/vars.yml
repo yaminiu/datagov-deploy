@@ -13,3 +13,6 @@ catalog_ckan_redis_host: "{{ catalog_next_ckan_redis_host }}"
 catalog_ckan_redis_password: "{{ catalog_next_ckan_redis_password }}"
 
 catalog_ckan_plugins_default: "{{ catalog_next_ckan_plugins_default }}"
+
+catalog_host_public: "{{ catalog_next_host_public }}"
+catalog_host_admin: "{{ catalog_next_host_admin }}"
