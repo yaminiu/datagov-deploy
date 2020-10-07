@@ -2,7 +2,7 @@
 - include: build-pkgs.yml
   vars:
     build_pkg_name: "ckanext-s3filestore"
-    build_pkg_repo: "https://github.com/GSA/ckanext-s3filestore"
+    build_pkg_repo: "https://github.com/okfn/ckanext-s3filestore"
     build_pkg_requirements: "requirements.txt"
   tags: ['s3filestore']
 
