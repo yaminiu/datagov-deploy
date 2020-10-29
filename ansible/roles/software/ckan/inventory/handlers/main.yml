@@ -4,7 +4,9 @@
   when: datagov_in_service
 
 - name: reload supervisor
-  command: supervisorctl reload
+  service:
+    name: supervisor
+    state: restarted
   when: datagov_in_service
   tags:
     - skip_ansible_lint
